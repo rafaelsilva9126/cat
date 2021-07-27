@@ -18,9 +18,35 @@ public class ApiTest extends BaseTest {
 	
 	
 	@Test
-	public void mustReceiveData() {
+	public void mustSendInvalidRequest() {
 			Map<String, String> names =
 			given()
+				.queryParam("function", "SYMBOL_SEARCH")
+				.queryParam("keywords", "")
+				.queryParam("apikey", "OA8DIY3HPLKG4C7F")
+			.when()
+					.get()
+					
+			.then()	
+			.statusCode(200)
+			.log().all()
+			.extract().path("$");
+	
+			Assert.assertThat(names, hasKey("Error Message"));
+		
+	}
+	
+	
+	
+	@Test
+	public void mustReceiveData() {
+		
+		
+			Map<String, String> names =
+			given()
+				.queryParam("function", "SYMBOL_SEARCH")
+				.queryParam("keywords", "tesco")
+				.queryParam("apikey", "OA8DIY3HPLKG4C7F")
 			.when()
 					.get()
 			.then()
