@@ -36,7 +36,24 @@ public class ApiTest extends BaseTest {
 		
 	}
 	
+	@Test
+	public void mustSendInexistedKeyword() {
+			Map<String, String> names =
+			given()
+				.queryParam("function", "SYMBOL_SEARCH")
+				.queryParam("keywords", "rafajisjsijs")
+				.queryParam("apikey", "OA8DIY3HPLKG4C7F")
+			.when()
+					.get()
+					
+			.then()	
+			.statusCode(200)
+			.log().all()
+			.extract().path("bestMatches[0]");
 	
+			Assert.assertThat(names, nullValue());
+		
+	}
 	
 	@Test
 	public void mustReceiveData() {
