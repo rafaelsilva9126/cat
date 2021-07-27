@@ -1,5 +1,5 @@
-For the construction of this project, Rest Assured was used with junit. 
-To run, just open any terminal and type mvn test. 
-But for that it is necessary to install mvn. If you choose to run via junit, select the ApiTest file and run via junit. 
-In the project in question there are 3 test scenarios, which are: mustSendInvalidRequest, mustSendInexistedKeyword, mustReceiveData.
-Questions or suggestions, send to rafaelsilva9126@hotmail.com.
+TRUMPHONE BACKEND
+
+EXECUTION MODE
+1- Run  by command line using the mvn test command on the path of the project
+2- Run by junit clicking on BaseTest.Java and execute by junit
